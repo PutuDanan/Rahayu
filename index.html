@@ -30,95 +30,43 @@
             margin-bottom: 20px;
         }
 
-        .media-container {
-            background-color: white;
-            border-radius: 10px;
-            padding: 20px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            text-align: center;
-            max-width: 600px; /* Maximum width for larger screens */
-            width: 100%;
-            box-sizing: border-box; /* Include padding in width calculation */
+        .button-container {
+            display: flex;
+            justify-content: center;
         }
 
-        video {
-            width: 100%; /* Full width for responsiveness */
-            border-radius: 10px;
-            margin-bottom: 20px;
-            height: auto; /* Maintain aspect ratio */
+        button {
+            padding: 15px 30px;
+            font-size: 18px;
+            color: white;
+            background-color: #00ca51;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease; /* Animasi transform dan background */
         }
 
-        .message {
-            font-size: 18px; /* Base font size */
-            color: #333;
-            margin-top: 20px;
-            border-right: 3px solid #0072ff; /* Cursor effect */
-            display: inline-block; /* Allows the element to take the width of its container */
-            overflow: hidden;
+        button:hover {
+            background-color: #009e3f;
         }
 
-        .typing-caret {
-            display: inline-block;
-            width: 10px;
-            background-color: #0072ff; /* Caret color */
-            animation: blink-caret 0.75s step-end infinite;
+        /* Animasi tombol saat ditekan */
+        button:active {
+            transform: scale(0.95); /* Mengecilkan tombol sedikit saat ditekan */
         }
-
-        @keyframes blink-caret {
-            from, to { background-color: transparent; }
-            50% { background-color: #0072ff; }
-        }
-
-        /* Responsive styles */
-        @media (max-width: 768px) {
-            .message {
-                font-size: 16px; /* Smaller font size for tablets and phones */
-            }
-        }
-
-        @media (max-width: 480px) {
-            .message {
-                font-size: 14px; /* Even smaller font size for mobile phones */
-            }
-        }
-
     </style>
 </head>
 <body>
 
-    <div class="media-container">
-        <!-- Video -->
-        <video src="video.mp4" autoplay loop muted>
-        </video>
-
-        <!-- Audio autoplay, hidden -->
-        <audio src="audio.mp3" autoplay loop>
-        </audio>
-
-        <!-- Message -->
-        <div class="message" id="message"></div>
-        <div class="typing-caret"></div>
+    <h1>🙏Selamat Hari Raya Galungan dan Kuningan🙏</h1>
+    <div class="button-container">
+        <button onclick="goToMainPage()">Mulai</button>
     </div>
 
     <script>
-        const message = "Om Swastyastu Rahajeng Rahina Galungan lan Kuningan, semoga Tuhan selalu memberikan anugerah, kebahagiaan, dan kedamaian kepada kamu dan keluarga. Semoga hari suci ini membawa berkah yang melimpah dan memperkuat ikatan dalam kebersamaan.";
-        const messageElement = document.getElementById('message');
-        let index = 0;
-
-        function typeLetter() {
-            if (index < message.length) {
-                messageElement.innerHTML += message[index]; // Ketik huruf per huruf
-                index++;
-                setTimeout(typeLetter, 100); // Waktu antara setiap huruf
-            } else {
-                document.querySelector('.typing-caret').style.display = 'none'; // Menghilangkan kursor setelah selesai
-            }
+        function goToMainPage() {
+            window.location.href = 'main.html'; // Mengarahkan ke halaman utama
         }
-
-        // Mulai mengetik setelah halaman dimuat
-        window.onload = function() {
-            typeLetter();
-        };
     </script>
 
 </body>
